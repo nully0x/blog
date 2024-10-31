@@ -1,6 +1,6 @@
 +++
 title = "A note on provisioning SSL on cloud instance or VPS"
-date = "2023-08-02"
+date = "2024-08-02"
 +++
 
 ## Introduction
