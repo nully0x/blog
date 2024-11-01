@@ -10,7 +10,8 @@ Temporary failure resolving 'deb.debian.org'
 WARNING: fetching https://dl-cdn.alpinelinux.org/alpine/v3.18/main: temporary error (try again later)
 
 This guide provides a step-by-step solution to resolve DNS issues in Minikube, configure CoreDNS, and ensure stable access to external repositories.
-Prerequisites:
+
+> Prerequisites:
 
 - Minikube installed and running locally.
 - Basic knowledge of Kubernetes, Kubernetes jobs, and how to access Minikube.
@@ -19,7 +20,6 @@ Prerequisites:
 ### Problem Overview
 
 When running a job or pod in Minikube, if you encounter errors indicating DNS failures (like Temporary failure resolving 'deb.debian.org'), this is usually due to DNS misconfiguration within the Minikube environment. Minikube uses CoreDNS for internal DNS resolution, and by default, it forwards DNS requests to the local system’s /etc/resolv.conf. However, this may fail if local DNS configurations are restricted or unreliable.
-Sample Error Log
 
 Here's an example of the type of error you might encounter in job logs:
 
@@ -30,16 +30,15 @@ Unable to locate package kubectl
 ```
 
 The issue prevents packages from being installed, which can disrupt jobs that need specific tools, like kubectl or ssh-keygen.
-Solution Outline
 
-To fix this issue:
+> To fix this issue:
 
 - Modify the CoreDNS configuration in Minikube to directly use external DNS servers (e.g., Google’s 8.8.8.8 and Cloudflare’s 1.1.1.1).
 - Restart CoreDNS pods to apply changes.
 - Verify that DNS resolution is working from within the Minikube cluster.
 
-Step-by-Step Solution
-Step 1: Edit the CoreDNS ConfigMap
+
+### Step 1: Edit the CoreDNS ConfigMap
 
 In Kubernetes, DNS settings are managed by the CoreDNS ConfigMap located in the kube-system namespace. Follow these steps to configure CoreDNS to forward requests to reliable external DNS servers.
 
@@ -76,7 +75,6 @@ Once the CoreDNS pods restart, it’s essential to verify that DNS resolution wo
 Run a Test Pod: Launch a temporary pod with DNS utilities installed:
 
 ```bash
-
 kubectl run -i --tty dnsutils --image=tutum/dnsutils --restart=Never -- /bin/sh
 ```
 

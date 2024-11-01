@@ -1,6 +1,6 @@
 +++
 title = "serverless-veed"
-description = "A serverless prototype for video sharing build aroung google cloud and firebase"
+description = "A serverless prototype for video sharing build around google cloud and firebase"
 weight = 1
 
 [extra]
