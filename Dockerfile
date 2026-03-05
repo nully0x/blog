@@ -1,8 +1,10 @@
 # Stage 1: Build the website
 FROM alpine:3.18 AS builder
 
-# Install Zola (specify the version that matches your local installation)
-RUN apk add --no-cache zola
+# Install Zola 0.22.1 from official release (apk ships 0.17.2 which lacks Giallo highlighting)
+RUN apk add --no-cache curl tar && \
+    curl -sSL https://github.com/getzola/zola/releases/download/v0.22.1/zola-v0.22.1-x86_64-unknown-linux-musl.tar.gz \
+    | tar -xz -C /usr/local/bin
 
 # Set the working directory
 WORKDIR /site
