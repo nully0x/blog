@@ -6,6 +6,8 @@ description = "Welcome to my nerd space"
 default_language = "en"
 compile_sass = true
 build_search_index = true
+generate_feeds = true
+feed_filenames = ["atom.xml"]
 
 taxonomies = [{ name = "tags" }]
 

@@ -3,26 +3,91 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>{{ page.title | default(value=config.title) | safe }}</title>
+  <title>{{ page.title | default(value=config.title) | safe }}{% if page.title %} — {{ config.title }}{% endif %}</title>
   <meta name="description" content="{{ page.description | default(value=config.description) | safe }}">
+  <meta name="author" content="{{ page.authors | default(value=[config.extra.author]) | join(sep=', ') }}">
 
+  {%- if page.taxonomies and page.taxonomies.tags %}
+  <meta name="keywords" content="{{ page.taxonomies.tags | join(sep=', ') }}">
+  {%- endif %}
+
+  <link rel="canonical" href="{{ current_url | safe }}">
+
+  {%- if config.generate_feeds %}
+  <link rel="alternate" type="application/atom+xml" title="{{ config.title }} — Feed" href="{{ get_url(path='atom.xml') | safe }}">
+  {%- endif %}
+
+  {# Open Graph #}
   <meta property="og:site_name" content="{{ config.title }}">
   <meta property="og:title" content="{{ page.title | default(value=config.title) | safe }}">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="{{ current_url }}">
-  {%- if page.extra.feature_image %}
-  <meta property="og:image" content="{{ page.extra.feature_image }}">
-  {% endif -%}
+  <meta property="og:type" content="{% if page.title and page.date %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ current_url | safe }}">
   <meta property="og:description" content="{{ page.description | default(value=config.description) | safe }}">
-  <meta property="twitter:card" content="summary">
-  <meta property="twitter:title" content="{{ page.title | default(value=config.title) | safe }}">
-  <meta property="twitter:description" content="{{ page.description | default(value=config.description) | safe }}">
   {%- if page.extra.feature_image %}
-  <meta property="twitter:image"  content="{{ page.extra.feature_image }}">
-  {% endif -%}
+  <meta property="og:image" content="{{ page.extra.feature_image | safe }}">
+  {%- endif %}
+  {%- if page.date %}
+  <meta property="article:published_time" content="{{ page.date | date(format='%Y-%m-%dT%H:%M:%SZ') }}">
+  {%- endif %}
+  {%- if page.taxonomies and page.taxonomies.tags %}
+  {%- for tag in page.taxonomies.tags %}
+  <meta property="article:tag" content="{{ tag }}">
+  {%- endfor %}
+  {%- endif %}
+
+  {# Twitter / X Card #}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@nully0x">
+  <meta name="twitter:title" content="{{ page.title | default(value=config.title) | safe }}">
+  <meta name="twitter:description" content="{{ page.description | default(value=config.description) | safe }}">
+  {%- if page.extra.feature_image %}
+  <meta name="twitter:image" content="{{ page.extra.feature_image | safe }}">
+  {%- endif %}
+
+  {# JSON-LD structured data #}
+  {%- if page.title and page.date %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | json_encode() | safe }},
+    "description": {{ page.description | default(value=config.description) | json_encode() | safe }},
+    "url": {{ current_url | json_encode() | safe }},
+    "datePublished": "{{ page.date | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    {%- if page.updated %}
+    "dateModified": "{{ page.updated | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    {%- endif %}
+    "author": {
+      "@type": "Person",
+      "name": {{ page.authors | default(value=[config.extra.author]) | first | json_encode() | safe }},
+      "url": {{ config.base_url | json_encode() | safe }}
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": {{ config.extra.author | json_encode() | safe }},
+      "url": {{ config.base_url | json_encode() | safe }}
+    }
+  }
+  </script>
+  {%- else %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ config.title | json_encode() | safe }},
+    "description": {{ config.description | json_encode() | safe }},
+    "url": {{ config.base_url | json_encode() | safe }},
+    "author": {
+      "@type": "Person",
+      "name": {{ config.extra.author | json_encode() | safe }},
+      "url": {{ config.base_url | json_encode() | safe }}
+    }
+  }
+  </script>
+  {%- endif %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

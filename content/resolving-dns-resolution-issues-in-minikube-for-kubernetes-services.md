@@ -3,7 +3,7 @@ title = "Resolving DNS Resolution Issues in Minikube for Kubernetes Service "
 date = "2024-10-31"
 authors = ["nully0x"]
 [taxonomies]
-tags = ["cloud, k8s"]
+tags = ["cloud", "k8s"]
 +++
 
 
