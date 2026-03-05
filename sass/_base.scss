@@ -575,3 +575,107 @@ hr {
     text-align: right;
     opacity: 0.8;
 }
+
+// Projects page
+.projects-page {
+    padding-top: 20px;
+}
+
+.projects-heading {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: $text-color;
+}
+
+.projects-description {
+    color: $grey-color;
+    margin-bottom: $vertical-spacing-unit;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: $vertical-spacing-unit / 2;
+}
+
+.project-card {
+    border-left: 3px solid var(--theme-color);
+    padding: 20px 24px;
+    background-color: $background-color;
+    border-top: 1px solid $grey-color-light;
+    border-right: 1px solid $grey-color-light;
+    border-bottom: 1px solid $grey-color-light;
+    border-radius: 0 4px 4px 0;
+
+    &:hover {
+        border-left-width: 5px;
+    }
+}
+
+.project-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+}
+
+.project-card-title {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3em;
+    margin: 0;
+    color: $text-color;
+}
+
+.project-card-links {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.project-link {
+    font-size: 13px;
+    color: var(--theme-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--theme-color);
+    padding-bottom: 1px;
+
+    &:hover {
+        color: $text-color;
+        border-bottom-color: $text-color;
+    }
+}
+
+.project-role {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--theme-color);
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.project-description {
+    font-size: 14px;
+    line-height: 1.7em;
+    color: $grey-color;
+    margin-bottom: 14px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.project-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border: 1px solid $grey-color-light;
+    border-radius: 2px;
+    color: $grey-color;
+    letter-spacing: 0.03em;
+}
