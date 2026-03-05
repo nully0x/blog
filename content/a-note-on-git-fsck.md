@@ -1,4 +1,12 @@
-# Recovering Dropped Changes via Git Dangling Commits
++++
+title = "A note on git fsck"
+date = "2026-03-05"
+authors = ["nully0x"]
+[taxonomies]
+tags = ["vcs", "git"]
++++
+
+## Recovering Dropped Changes via Git Dangling Commits
 
 I recently hit a scenario where I mistakenly dropped test files after a branch cleanup. The files were staged and committed on an unintended branch, in an attempt to clean-up, I mistakenly dropped the commit. `git status` showed a clean tree, and the files were physically gone from the disk.
 
