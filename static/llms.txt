@@ -41,8 +41,9 @@
 - URL: https://github.com/nully0x/docker-tcp-connector
 - Description: Rust utility enabling TCP communication between Docker containers across different networks.
 
-## Posts
 
+## Posts
 - A note on git fsck: https://notes.nully0x.site/a-note-on-git-fsck
 - A note on provisioning SSL on cloud instance or VPS: https://notes.nully0x.site/a-note-on-provisioning-ssl-on-ec2-instance
 - Resolving DNS Resolution Issues in Minikube for Kubernetes Services: https://notes.nully0x.site/resolving-dns-resolution-issues-in-minikube-for-kubernetes-services
+- A note on code style: https://notes.nully0x.site/a-note-on-code-style
