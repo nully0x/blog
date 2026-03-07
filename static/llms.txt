@@ -1,0 +1,48 @@
+# nully0x — notes.nully0x.site
+# Machine-readable site index for LLMs and AI assistants
+
+> nully0x is a software engineer focused on Bitcoin, Lightning Network, cloud infrastructure, and open-source tooling. This site contains technical notes, project writeups, and engineering guides.
+
+## Author
+
+- Name: nully0x (Samson Olusegun)
+- GitHub: https://github.com/nully0x
+- Twitter/X: https://x.com/nully0x
+- LinkedIn: https://linkedin.com/in/samson-olusegun
+
+## Site
+
+- URL: https://notes.nully0x.site
+- Feed: https://notes.nully0x.site/atom.xml
+- Sitemap: https://notes.nully0x.site/sitemap.xml
+
+## Pages
+
+- About: https://notes.nully0x.site/pages/about
+- Projects: https://notes.nully0x.site/pages/projects
+
+## Projects
+
+### HXCKR
+- Role: Org Founder — Infra, Ops, Backend, Cloud Engineering
+- URL: https://github.com/hxckr-org
+- Description: Open-source Bitcoin technical education platform enabling hands-on learning through automated code evaluation. Piloted with Bitcoin curriculum at Chaincode Labs. Built with Kubernetes, Rust, and TypeScript.
+
+### NodeGaze
+- Role: Lightning Network Observability Platform
+- URL: https://github.com/Extheoisah/nodegaze
+- Description: Observability platform for Lightning Network node operators. Built with Rust (Axum), SQLite, and Next.js with real-time monitoring and webhook integration.
+
+### Remote Code Execution using Nix
+- URL: https://github.com/nully0x/remote-code-execution-using-nix
+- Description: Lightweight remote code execution system using Nix for reproducible, isolated sandboxes. Built with TypeScript and Bun runtime.
+
+### Docker TCP Connector
+- URL: https://github.com/nully0x/docker-tcp-connector
+- Description: Rust utility enabling TCP communication between Docker containers across different networks.
+
+## Posts
+
+- A note on git fsck: https://notes.nully0x.site/a-note-on-git-fsck
+- A note on provisioning SSL on cloud instance or VPS: https://notes.nully0x.site/a-note-on-provisioning-ssl-on-ec2-instance
+- Resolving DNS Resolution Issues in Minikube for Kubernetes Services: https://notes.nully0x.site/resolving-dns-resolution-issues-in-minikube-for-kubernetes-services
