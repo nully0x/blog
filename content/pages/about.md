@@ -13,3 +13,5 @@ socials = [
 
 <br/>
 I am a Software Engineer with flare and passion for web and cloud technologies, designing accessible applications, solving problems and contributing to open-source projects.
+
+I work across **Web Engineering**, **Bitcoin and Lightning Development**, **Cloud, DevOps and Infrastructure**, **Research**, and **Data Processing**.
