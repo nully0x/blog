@@ -3,6 +3,13 @@ title = "projects"
 template = "portfolio.html"
 
 [[extra.items]]
+title = "Signet Sandbox"
+role = "Bitcoin Test Environments as a Service"
+description = "Isolated Bitcoin signet environments for teams and AI agents, provisioned through a JSON-RPC API. Each environment gets its own chain: bitcoind in signet mode, a custom BIP325 block signer, and optional electrs, mempool explorer, faucet, and LND in a dedicated Kubernetes namespace. Built with Rust (Axum), Postgres, and kube-rs, with NIP-98 and bearer token authentication and TTL-based teardown."
+github = "https://github.com/nully0x/signet-sandbox"
+tags = ["Rust", "Kubernetes", "Svelte", "Bitcoin"]
+
+[[extra.items]]
 title = "HXCKR"
 role = "Infra, Ops, Backend, Cloud Engineering"
 description = "Open-source platform for technical education enabling hands-on learning through automated code evaluation. Piloted with Bitcoin curriculum at Chaincode Labs. Built complete microservices platform using Kubernetes, Rust, and TypeScript with automated test runners, LMS backend, and CI/CD pipelines. Managed multi-environment deployments across 5+ repositories with infrastructure-as-code and container orchestration."
